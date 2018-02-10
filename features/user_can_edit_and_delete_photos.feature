@@ -20,12 +20,12 @@ Feature: User can edit and delete photos
     When I visit the index page
     And I click "Shared albums"
 
-  Scenario: User can delete uploaded photos
+  Scenario: User can delete uploaded photos [Happy path]
     And I click "Lisa's renovation"
     When I click "Delete"
     Then I should not see "random.png" image
 
-  Scenario: User can edit uploaded photos title
+  Scenario: User can edit uploaded photos title [Happy path]
     And I click "Lisa's renovation"
     And I should see "random.png" image
     And I should see "Something"
@@ -36,3 +36,15 @@ Feature: User can edit and delete photos
     And I click "Update Photo" button
     Then I should be on the album "Lisa's renovation" page
     Then I should see "Something else"
+
+  Scenario: User gets redirected to edit title page if title is left blank [Sad path]
+    And I click "Lisa's renovation"
+    And I should see "random.png" image
+    And I should see "Something"
+    When I click "Edit title"
+    And I should see "Editing photo title"
+    And I should see "Back"
+    And I fill in "Title" with ""
+    And I click "Update Photo" button
+    And I should see "Editing photo title"
+    And I should see "Back"
