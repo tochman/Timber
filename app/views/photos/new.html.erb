@@ -1,12 +1,12 @@
 <div class="page-header"><h1>Upload Photo</h1></div>
-<%= form_for @photo, url: album_photos_path, multipart: true do |f| %>
+<%= form_for @photo, url: album_photos_path, html: {multipart: true, class: 'dropzone'} do |f| %>
   <%= render 'partials/errors', object: @photo %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'mx-sm-3 mb-2' %>
   </div>
 
-  <div class="form-group">
+  <div class="fallback">
     <%= f.label :image %>
     <%= f.file_field :image, multiple: true, class: 'mx-sm-3 mb-2' %>
   </div>
@@ -14,3 +14,22 @@
   <%= f.submit 'Upload', class: 'btn btn-primary' %>
   <%= f.submit 'Upload and save to album', name: :finish_upload, class: 'btn btn-primary' %>
 <% end %>
+
+
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("turbolinks:load", function () {
+        // disable auto discover
+        Dropzone.autoDiscover = false;
+
+        var dropzone = new Dropzone (".dropzone", {
+            maxFilesize: 256, // set the maximum file size to 256 MB
+            paramName: "photo[image]", // Rails expects the file upload to be something like model[field_name]
+            addRemoveLinks: true // don't show remove links on dropzone itself.
+        });
+
+        dropzone.on("success", function(file) {
+            this.removeFile(file);
+            $.getScript("/images");
+        })
+    }
+</script>

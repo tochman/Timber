@@ -21,6 +21,8 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'lightbox-bootstrap-rails', '5.1.0.1'
 gem 'coffee-rails'
+gem 'dropzonejs-rails'
+
 
 group :development, :test do
   gem 'chromedriver-helper'

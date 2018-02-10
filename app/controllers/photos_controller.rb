@@ -19,6 +19,12 @@ class PhotosController < ApplicationController
       photos.push @photo
     end if photo_params[:image]
 
+    if params[:file]
+      file = params[:file]
+      @photo = @album.photos.create(title: photo_params[:title], image: file)
+      photos.push @photo
+    end
+
     if photos_present_and_valid?(photos)
       flash[:notice] = set_success_flash(photos)
       if params.key?(:finish_upload)
@@ -75,6 +81,8 @@ class PhotosController < ApplicationController
   end
 
   def photos_present_and_valid?(array)
+    binding.pry
     array.any? && array.all?(&:valid?)
   end
+
 end
