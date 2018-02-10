@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
-
-  before_action :get_album, only: [:create, :destroy, :edit, :update]
-  before_action :get_photo, only: [:destroy, :edit, :update]
+  before_action :album, only: %i[create destroy edit update]
+  before_action :photo, only: %i[destroy edit update]
 
   def index
     @photos = current_user.photos
@@ -14,26 +13,21 @@ class PhotosController < ApplicationController
 
   def create
     photos = []
-    photo_params[:image].each do |file|
-      @photo = @album.photos.create(title: photo_params[:title], image: file)
-      photos.push @photo
-    end if photo_params[:image]
-
-    if params[:file]
-      file = params[:file]
-      @photo = @album.photos.create(title: photo_params[:title], image: file)
-      photos.push @photo
+    if photo_params[:image]
+      photo_params[:image].each { |file| photos.push create_photo(file) }
     end
 
+    photos.push create_photo if params[:file]
+
     if photos_present_and_valid?(photos)
-      flash[:notice] = set_success_flash(photos)
+      flash[:notice] = success_flash(photos)
       if params.key?(:finish_upload)
         redirect_to album_path(@album)
       else
         redirect_to new_album_photo_path(@album)
       end
     else
-      flash[:alert] = set_errors_flash(photos)
+      flash[:alert] = errors_flash(photos)
       redirect_to new_album_photo_path(@album)
     end
   end
@@ -42,9 +36,6 @@ class PhotosController < ApplicationController
     @photo.destroy
     flash[:success] = 'The photo was deleted.'
     redirect_to album_photos_path(@album)
-  end
-
-  def edit
   end
 
   def update
@@ -62,27 +53,33 @@ class PhotosController < ApplicationController
     params.require(:photo).permit(:title, image: [])
   end
 
-  def get_album
+  def create_photo(file = nil)
+    @album.photos.create(
+      title: photo_params[:title],
+      image: file.nil? ? params[:file] : file
+    )
+  end
+
+  def album
     @album = Album.find(params[:album_id])
   end
 
-  def get_photo
+  def photo
     @photo = Photo.find(params[:id])
   end
 
-  def set_success_flash(array)
-    array.count == 1 ? 'Successfully created a new photo!' : "Successfully created #{array.count} photos!"
+  def success_flash(collection)
+    I18n.t('new_photos', count: collection.count)
   end
 
-  def set_errors_flash(array)
-    message = 'Error, no photo was created'
-    array.each{ |photo| message += '<br/>' + photo.errors.full_messages.first}
-    message
+  def errors_flash(collection)
+    [
+      'Error, no photo was created',
+      collection.map { |photo| photo.errors.full_messages }
+    ].flatten.join('<br />')
   end
 
-  def photos_present_and_valid?(array)
-    binding.pry
-    array.any? && array.all?(&:valid?)
+  def photos_present_and_valid?(photos)
+    photos.any? && photos.all?(&:valid?)
   end
-
 end

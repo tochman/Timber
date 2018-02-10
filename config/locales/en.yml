@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  new_photos:
+    one: 'Successfully created a new photo!'
+    other: 'Successfully created %{count} photos!'
