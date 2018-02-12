@@ -1,6 +1,4 @@
 @import 'dropzone/dropzone';
-
-
 @import 'bootstrap';
 @import 'lightbox-bootstrap';
 
@@ -10,10 +8,10 @@ body {
 }
 
 p {
-    color: #4F544B;
-    font-weight: bold;
-    font-size: 1rem;
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  color: #4F544B;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
 html {
@@ -54,6 +52,7 @@ a {
 .extra-padding {
   padding: 3rem 3rem;
 }
+
 //Typography
 
 #photo-title {
@@ -90,9 +89,9 @@ a {
 }
 
 .nav-item {
-     padding-right: 0.75em;
-     padding-left: 0.75em;
-     color: #69695d;
+  padding-right: 0.75em;
+  padding-left: 0.75em;
+  color: #69695d;
 }
 
 .navbar-green {
@@ -112,19 +111,19 @@ a {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #44B583;
-    border-color: #44B586;
+  color: #fff;
+  background-color: #44B583;
+  border-color: #44B586;
   }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: #fff;
-    background-color: #2b9b69;
-    border-color: #2b9b69;
-}
-
-.form-control {
-
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #2b9b69;
+  border-color: #2b9b69;
 }
 
 //Images
@@ -180,16 +179,16 @@ a {
 }
 
 .round-image-24 {
-    background-color: #b7d6aa;
-    border: 1px solid #d9d9d9;
-    border-radius: 12px;
-    -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    height: 24px;
-    width: 24px;
-    overflow: hidden;
-    text-align: center;
-    img { width: 170% }
+  background-color: #b7d6aa;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+  text-align: center;
+  img { width: 170% }
 }
 
 //Footer
@@ -215,25 +214,25 @@ a {
 //Carousel
 
 .carousel-slide .carousel-inner .carousel-item {
-    height: 100vh;
-    min-height: 600px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 100vh;
+  min-height: 600px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .carousel-inner > .carousel-item> img {
-    margin: 0 auto;
-    background-position: center center;
+  margin: 0 auto;
+  background-position: center center;
 }
 
 .carousel-control-prev {
-    color: #69695d;
+  color: #69695d;
 }
 
 #albumshared {
-    font-size: 2rem;
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-    padding-left: 2em;
-    color: #69695d;
+  font-size: 2rem;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  padding-left: 2em;
+  color: #69695d;
 }
