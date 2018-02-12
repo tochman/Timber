@@ -5,12 +5,12 @@ Feature: User can upload attached file
 
   Background:
     Given the following family exist
-     | name         |
-     | The Simpsons |
+      | name         |
+      | The Simpsons |
 
-   Given the following user is part of a family
-     | email          | first_name | password    | password_confirmation | family       |
-     | lisa@gmail.com | Lisa       | heythere123 | heythere123           | The Simpsons |
+    Given the following user is part of a family
+      | email          | first_name | password    | password_confirmation | family       |
+      | lisa@gmail.com | Lisa       | heythere123 | heythere123           | The Simpsons |
 
     And I am logged in as "lisa@gmail.com"
     When I visit the index page
@@ -49,4 +49,3 @@ Feature: User can upload attached file
     Then I should be on the album "Lisa's renovation" page
     And I should see "random.png" image
     And I should see "random2.png" image
-

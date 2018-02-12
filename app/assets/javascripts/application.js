@@ -16,6 +16,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require lightbox-bootstrap
+//= require dropzone
 //= require_tree .
 
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
