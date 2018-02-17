@@ -1,4 +1,4 @@
-Feature: User can only see ambums created by him/her on My albums
+Feature: User can only see albums created by him/her on My albums
   As a user,
   In order to manage my uploaded photos,
   I would like to be able to delete and edit photos after I upload them

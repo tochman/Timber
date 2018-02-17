@@ -12,8 +12,8 @@ Feature: Navbar
 
     And I am logged in as "lisa@gmail.com"
 
-  Scenario: Display new navbar links when user is logged in 
-  	Given I visit the index page 
+  Scenario: Display new navbar links when user is logged in
+  	Given I visit the index page
    	Then I should see "My albums"
    	And I should see "Shared albums"
    	And I should see "Invite"

@@ -6,11 +6,11 @@ Feature: User can send invite to another user via email
   Background:
 
     Given the following family exist
-      | name         |
+      | name     |
       | Simpsons |
 
     Given the following user is part of a family
-      | email          | first_name | password    | password_confirmation | family       |
+      | email          | first_name | password    | password_confirmation | family   |
       | lisa@gmail.com | Lisa       | heythere123 | heythere123           | Simpsons |
 
     Given I am logged in as "lisa@gmail.com"

@@ -12,7 +12,7 @@ Then('a family should have been created in the database') do
   expect(family).not_to be nil
 end
 
-Then("I should see {string} and {string}") do |content, user_email|
-  user = User.find_by(email: user_email)
+Then('I should see {string} and {string}') do |content, user_email|
+  User.find_by(email: user_email)
   expect(page).to have_content content
 end

@@ -6,7 +6,7 @@ before_action :check_for_family, only: [:create]
     if params[:my_albums]
       @albums = current_user.my_albums
       @title = "My albums"
-    else 
+    else
       @albums = current_user.family.albums
       @title = "Shared albums"
     end

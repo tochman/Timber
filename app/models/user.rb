@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   def my_albums
     Album.where(creator_id: self.id)
-  end 
+  end
 
   def has_family?
   	self.family.present?

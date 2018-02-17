@@ -3,20 +3,22 @@
 @import 'lightbox-bootstrap';
 
 body {
-  text-align: center;
   background: transparent;
+  margin-bottom: 80px;
+  text-align: center;
 }
 
 p {
   color: #4F544B;
-  font-weight: bold;
-  font-size: 1rem;
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 html {
-  height:100%;
   background: linear-gradient(to bottom, rgb(223, 247, 225), rgb(240, 240, 230));
+  min-height: 100%;
+  position: relative;
 }
 
 a:hover {
@@ -46,11 +48,11 @@ a {
 
 .jumbotron {
   background-color: rgba(255, 255, 255, 0);
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 
 .extra-padding {
-  padding: 3rem 3rem;
+  padding: 3rem;
 }
 
 //Typography
@@ -60,19 +62,19 @@ a {
 }
 
 .lobster {
-  font-size: 3rem;
-  font-family: 'Lobster';
-  padding-bottom: 1rem;
   color: #69695d;
-  text-shadow: 0px 1px 1px #FFF;
+  font-family: 'Lobster';
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  text-shadow: 0 1px 1px #FFF;
 }
 
 .page-header {
-  font-size: 3rem;
-  font-family: 'Lobster';
-  padding: 1rem;
   color: #69695d;
-  text-shadow: 0px 1px 1px #FFF;
+  font-family: 'Lobster';
+  font-size: 3rem;
+  padding: 1rem;
+  text-shadow: 0 1px 1px #FFF;
 }
 
 .center-text {
@@ -82,16 +84,16 @@ a {
 //Navigation
 
 .nav-logo {
+  color: #69695d;
   font-family: 'Lobster';
   font-size: 2.5em;
-  color: #69695d;
-  text-shadow: 0px 1px 1px #FFF;
+  text-shadow: 0 1px 1px #fff;
 }
 
 .nav-item {
-  padding-right: 0.75em;
-  padding-left: 0.75em;
   color: #69695d;
+  padding-left: .75em;
+  padding-right: .75em;
 }
 
 .navbar-green {
@@ -103,7 +105,7 @@ a {
 }
 
 .btn-space {
-  margin-right:1rem;
+  margin-right: 1rem;
 }
 
 .btn {
@@ -111,19 +113,19 @@ a {
 }
 
 .btn-primary {
-  color: #fff;
   background-color: #44B583;
   border-color: #44B586;
-  }
+  color: #fff;
+}
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
 .open>.dropdown-toggle.btn-primary {
-  color: #fff;
   background-color: #2b9b69;
   border-color: #2b9b69;
+  color: #fff;
 }
 
 //Images
@@ -134,96 +136,96 @@ a {
 }
 
 %box-shadow {
-  box-shadow: 0px 2px 2px #ccc;
+  box-shadow: 0 2px 2px #ccc;
 }
 
 #img1 {
   @extend %image-size;
-  top: -90px;
-  right: 90px;
-  transform: rotate(-3deg);
   position: absolute;
-  @extend %box-shadow
+  right: 90px;
+  top: -90px;
+  transform: rotate(-3deg);
+  @extend %box-shadow;
 }
 
 #img2 {
   @extend %image-size;
-  top: 25px;
-  right: 50px;
-  transform: rotate(5deg);
   position: absolute;
-  @extend %box-shadow
+  right: 50px;
+  top: 25px;
+  transform: rotate(5deg);
+  @extend %box-shadow;
 }
 
 #img3 {
   @extend %image-size;
-  top: -30px;
-  right: 30px;
-  transform: rotate(-5deg);
   position: absolute;
-  @extend %box-shadow
+  right: 30px;
+  top: -30px;
+  transform: rotate(-5deg);
+  @extend %box-shadow;
 }
 
 #img4 {
   @extend %image-size;
-  top: -25px;
-  right: 70px;
-  transform: rotate(5deg);
   position: absolute;
-  @extend %box-shadow
+  right: 70px;
+  top: -25px;
+  transform: rotate(5deg);
+  @extend %box-shadow;
 }
 
 #img5 {
-  top: 0px;
-  right: 0px;
+  right: 0;
+  top: 0;
 }
 
 .round-image-24 {
   background-color: #b7d6aa;
   border: 1px solid #d9d9d9;
-  border-radius: 12px;
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
+  border-radius: 12px;
   height: 24px;
-  width: 24px;
   overflow: hidden;
   text-align: center;
-  img { width: 170% }
+  width: 24px;
+  img { width: 170% };
 }
 
 //Footer
 
 .footer {
-  position: fixed;
-  right: 0;
+  background-color: #69695d;
   bottom: 0;
+  height: 60px;
   left: 0;
   padding: 1rem;
-  width: 100%;
-  background-color: #69695d;
-  line-height: 2rem;
+  position: absolute;
+  right: 0;
   text-align: center;
+  width: 100%;
 }
 
 .footer-text {
   color: #FFF;
-  padding: 1em;
   font-size: .75rem;
+  padding: 1em;
 }
 
 //Carousel
 
 .carousel-slide .carousel-inner .carousel-item {
-  height: 100vh;
-  min-height: 600px;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  min-height: 600px;
 }
 
 .carousel-inner > .carousel-item> img {
-  margin: 0 auto;
   background-position: center center;
+  margin: 0 auto;
 }
 
 .carousel-control-prev {
@@ -231,8 +233,8 @@ a {
 }
 
 #albumshared {
-  font-size: 2rem;
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  padding-left: 2em;
   color: #69695d;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 2rem;
+  padding-left: 2em;
 }

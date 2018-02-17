@@ -4,17 +4,29 @@ Final project for Craft Academy October 2017 Cohort.
 
 ## Description
 
-Timber is a platform to share your phots and content together with your family
+Timber is a platform to share your photos and content together with your family.  
+Once you land on the platform (https://timber-ca.herokuapp.com/), you need to register
+(click on `sign up` in the navbar) to use the platform's features.  
+The registration process requires you to enter email, first name, password, password confirmation and family name.  
+Every user needs to be part of a family to be able to create an album and upload pictures.  
+When the registration process is completed you can create a new album(`New album`), edit your profile
+data and picture(`Edit profile`), send an invite via email to another user(`Invite`).  
+If the invited user accept and complete the registration, he/she will automatically be part of your family
+  and will be able to see your already existing albums and create other albums related to the family as well.  
+`My albums` are the albums you created and you can add other pictures to it,
+ `Shared albums` are the albums accessible by you and all the users that are part of your family.
 
 ## Contributors
 * Francesco Falchi: https://github.com/NegativeKarma
 * Lisa Eriksson: https://github.com/lcegit
 * Sophie Sjöberg: https://github.com/sophiesjoberg
 * Zuzanna Bienkowska: https://github.com/zuzanna81/
+
 During the project we had help from:
 * https://github.com/magnus-thor/
 * https://github.com/tochman
 * https://github.com/faraznaeem
+* https://github.com/diraulo
 
 ## Technologies
 * Ruby on Rails
@@ -27,9 +39,15 @@ During the project we had help from:
 * Devise
 * devise_invitable
 * Coffee rails
+* Lightbox Bootstrap
+* SendGrid
 
 ## Installation
-_[TODO: Add installation and setup instructions]_
+Download the ZIP file from this repo
+Unzip the file and then open it up via your terminal
+Run `bundle install`, after run `rails db:create db:migrate`
+Run `rails s` and go to http://localhost:3000/
+
 ## Testing
 * Cucumber
 * RSpec
@@ -114,10 +132,5 @@ A full list of Jest Matchers can be found on the [Jest reference docs.](https://
 #### Active Models
 Active Record Models are tested using RSpec (model specs)
 
-_[TODO: Add description of testing strategies. Are you using factories? Shoulda matchers? etc...]_
-
-
-#### API Endpoints
-API endpoints are tested using RSpec (request specs)
-
-_[TODO: Add description of testing strategies. Are you using fixtures? How do you call your url's (using helpers or referencing them a static url's)? etc...]_
+We are using Shoulda matchers to test the expected database tables, validations and permissions.
+We are also allowing, via validations, the objects created by FactoryBot to be tested

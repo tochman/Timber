@@ -1,4 +1,4 @@
-When("I visit new photo page") do
+When('I visit new photo page') do
   visit new_photo_path
 end
 
@@ -22,17 +22,17 @@ And("I should see {string} image") do |file_name|
   expect(page).to have_css("img[src*='#{file_name}']")
 end
 
-Then("I should not see {string} image") do |file_name|
+Then('I should not see {string} image') do |file_name|
   expect(page).not_to have_css("img[src*='#{file_name}']")
 end
 
-Given("the following album exists") do |table|
+Given('the following album exists') do |table|
   table.hashes.each do |title|
     create(:album, title)
   end
 end
 
-Given("the following image exist in album") do |table|
+Given('the following image exist in album') do |table|
   table.hashes.each do |image|
     if image[:created_by]
       creator = User.find_by(email: image[:created_by])
@@ -46,20 +46,21 @@ Given("the following image exist in album") do |table|
   end
 end
 
-Then("the last album should have title {string}") do |album_title|
+Then('the last album should have title {string}') do |album_title|
   album = Album.last
   expect(album.title).to eq album_title
 end
 
-Then("the last album should belong to {string} family") do |family_name|
+Then('the last album should belong to {string} family') do |family_name|
   family = Family.find_by(name: family_name)
-  expect(Family.last.name).to eq family.name end
-
-Then("I should not see {string}") do |content|
-  expect(page).not_to have_content content 
+  expect(Family.last.name).to eq family.name
 end
 
-Then(/^I should be on the album "([^"]*)" page$/) do |album_title|
+Then('I should not see {string}') do |content|
+  expect(page).not_to have_content content
+end
+
+Then('I should be on the album {string} page') do |album_title|
   album = Album.find_by(title: album_title)
   expect(current_path).to eq album_path(album)
 end
